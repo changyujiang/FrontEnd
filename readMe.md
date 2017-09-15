@@ -1,7 +1,5 @@
 # Series Projects for Web Technologies
 
-## HTML fundamentals
-
-## HTML+CSS
+## Webpage Imitation(HTML+CSS)
 
 ## Javascript JQuery AngularJS

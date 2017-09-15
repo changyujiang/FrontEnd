@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Homework 3 for CSCI 571">
+        <title>Homework 3</title>
+        <style>
+            #body{
+                 font-family: "Helvetica";
+            }
+            #box{
+                position: absolute;
+                top: 45px;  left: 372px;
+                margin: 0;  padding: 0;
+                width: 430px;   height: 262px;
+                background: #000000;
+                text-align: center;
+            }
+            #box_line1{
+                position: absolute;
+                top: 64px;left: 80px;
+                padding: inherit;margin: inherit;
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                letter-spacing: 5px;
+                word-spacing: 5px;
+            }
+            #box_hr1{
+                position: absolute;
+                top: 98px;left: 40px;
+                padding: inherit;margin: inherit;
+                width: 350px; height: 1px;
+                border: 0;
+                background-color: white;
+            }
+            #box_line2{
+                position: absolute;
+                top: 106px;left: 105px;
+                padding: inherit;margin: inherit;
+                color: white;
+            }              
+            #number{
+                position: absolute;
+                top: 5px;left: 0px;
+                font-size: 60px;
+                padding-bottom: 1px;
+                border-bottom: 5px white solid;
+            }
+            #thirteen{
+                position: absolute;
+                top: -10px;left: 90px;
+                font-size: 120px;
+            }
+            #pic{
+                position: absolute;
+                top: 350px; left: 0;
+            }
+            #pic_img{
+                width: 1173px; height: 367px
+            }
+            #pic_text{
+                position: absolute;
+                top: 96px; 
+                left: 388px;
+                font-size: 16px;
+                font-weight: normal;
+                color: #b5a364;
+                letter-spacing: 4px;
+            }
+            #main{
+                position: absolute;
+                text-align: center;
+                font-size: 18px;
+                top: 488px;
+                left: 260px;
+            }
+            #button1 {
+                position: absolute;
+                top: 566px; left: 444px;
+                width: 282px; height: 59px;
+                border: 3px black solid;
+                color: black;
+                background-color: white;
+                letter-spacing: 4px;
+                word-spacing: 3px;
+                text-align: center;
+                font-size: 12px;
+                transition-duration: 0.5s;
+                cursor: pointer;
+            }
+            #button1:hover {
+                background-color: black;
+                color: white;
+            }            
+            #footer1{
+                position: absolute;
+                top: 716px;
+                background-color: #252525;
+                color: white;
+                font-size: 10px;
+                height: 535px;
+                width: 1173px;
+                padding: 0; margin: 0;  border: 0;
+            }
+            #footer_hr2{
+                position: absolute;
+                top:203px;  left: 0;
+                height: 1px;    width: 1173px;
+                border: 0;  padding: inherit; margin: inherit;
+                background-color:#555555 ;
+            }
+            #footer_hr3{
+                position: absolute;
+                top:16px;  left: 440px;
+                height: 188px;    width: 1px;
+                border: 0;  padding: inherit; margin: inherit;                
+                background-color:#555555 ;
+            }            
+            #footer_text1{
+                position: absolute;
+                top:105px;
+                left: 78px;
+                word-spacing: 3px;
+                letter-spacing: 4px;
+                font-weight: normal;
+            }
+            #footer_text1:hover{
+                border-bottom: 1px white solid
+            }
+            #newsletter{
+                position: absolute;
+                top: 63px;left: 510px;
+                word-spacing: 3px;
+                letter-spacing: 4px;
+                color: #bba04a;
+                font-weight: bold;
+            }
+            #input1{
+                position: absolute;
+                padding: 0 0 0 10px;
+                border: 0;margin: 0;
+                top: 100px;left: 514px;
+                width: 310px;height: 50px;
+                font-size: 14px;
+            }
+            #button2 {
+                position: absolute;
+                top: 96px; left: 840px;
+                width: 245px; height: 59px;
+                border: 3px white solid;
+                color: white;
+                background-color: #252525;
+                letter-spacing: 4px;
+                word-spacing: 3px;
+                text-align: center;
+                font-size: 14px;
+                font-weight: bold;
+                transition-duration: 0.5s;
+                cursor: pointer;
+            }
+            #button2:hover {
+                background-color: white;
+                color: black;
+            }
+            #button3 {
+                position: absolute;
+                top: 440px; left: 50px;
+                width: 177px; height: 32px;
+                border: 3px white solid;
+                color: white;
+                background-color: #252525;
+                letter-spacing: 4px;
+                word-spacing: 3px;
+                text-align: center;
+                font-size: 10px;
+                font-weight: normal;
+                transition-duration: 0.5s;
+                cursor: pointer;
+            }
+            #button3:hover {
+                background-color: white;
+                color: black;
+            }            
+            .head{
+                color: #bba04a;
+                font-size: 14px;
+                letter-spacing: 4px;
+                word-spacing: 3px;
+                font-weight: bold;
+            }
+            .place{
+                font-size: 14px;
+                letter-spacing: 4px;
+                word-spacing: 3px;
+            }
+            .details{
+                line-height: 20px;
+            }
+            #contact1{
+                position: absolute;
+                left: 50px;
+                top: 246px;
+                line-height: 40px;
+            }
+            #contact2{
+                position: absolute;
+                left: 275px;
+                top: 345px;
+                line-height: 20px;
+            }
+            #contact3{
+                position: absolute;
+                left: 500px;
+                top: 246px;
+                line-height: 40px;
+            }
+            #contact4{
+                position: absolute;
+                left: 725px;
+                top: 286px;
+                line-height: 40px;
+            }
+            #contact5{
+                position: absolute;
+                left: 950px;
+                top: 286px;
+                line-height: 40px;
+            }            
+            .TE{
+                color: #bba04a;
+                font-weight: bold
+            }
+            .mail{
+                border-bottom: 1px white solid
+            }
+            a{
+                color: white;
+                text-decoration: none;
+            }
+
+        </style>
+        
+    </head>
+    <body id="body">
+        <div id="box">            
+            <p id="box_line1">LOCATION FAVOURITES</p>
+            <hr id="box_hr1">
+            <p id="box_line2">
+                <a href="X.html#no13" title="link for number 13" target="_blank">
+                    <span id="number">No.</span>
+                    <span id="thirteen">13</span>
+                </a>
+            </p>
+        </div> 
+        <div id="pic">
+            <a href="X.html#hello" title="link for sayHello" target="_blank">
+                <img id="pic_img" src="sayhello.png"  alt="sayhello" >
+            </a>
+            <span id="pic_text">
+                INTERESTED IN WORKING WITH US?</span>
+        </div>
+        <div id="main">
+            We'd love to hear from you, so give us a call. Or, if you're the shy and retiring<br>type, drop us a line here and we'll get back to you. 
+        </div>
+        <a href="X.html#touch" title="link for GetInTouch" target="_blank">
+            <button id="button1">GET IN TOUCH</button>
+        </a>
+        <footer id="footer1">
+            <hr id="footer_hr3">
+            <hr id="footer_hr2">
+            <a href="X.html#article" title="link for read articles" target="_blank">
+                <div id="footer_text1">READ OUR LATEST ARTICLES</div>
+            </a>
+            <div id="newsletter">SIGN UP TO OUR NEWSLEETER</div>
+            <input id="input1" type="email" placeholder="Enter your email address"/>
+            <a href="X.html#signup" title="link for SignUp" target="_blank">
+                <button id="button2">SIGN UP</button>
+            </a>
+            <div id="contact1">
+                <span class="head">HEADQUARTERS</span><br>
+                <span class="place">EDINBURGN</span><br>
+                <p class="details">1012 Constitution Street<br>Edinburgh<br>Scotland<br>EH67AE</p>
+            </div>
+            <div id="contact2">
+                <span class="TE">T:</span> +44 (0) 555 561 0120<br>
+                <span class="TE">E:</span> 
+                <a href="Mailto:hello@productions.com" title="mail to hello@">
+                    <span class="mail">hello@productions.com</span>
+                </a>
+            </div>
+            <div id="contact3">
+                <span class="head">OFFICES</span><br>
+                <span class="place">NEW YORK</span><br>
+                <p class="details">12 E. 47th Street<br>5th Floor<br>New York,New York 10017<br>USA</p>
+                <p class="details">
+                    <span class="TE">T:</span> +1 212-555-8843<br>
+                    <span class="TE">E:</span> <br>
+                <a href="Mailto:newyork@productions.com" title="mail to newyork@">                    
+                    <span class="mail">newyork@productions.com</span>
+                </a>
+                </p>
+            </div>
+            <div id="contact4">
+                <span class="place">LONDON</span><br>
+                <p class="details">128 Dean Street<br>London<br>England<br>W1D4QF</p>
+                <p class="details">
+                    <span class="TE">T:</span> +44 (0) 20 5555 1190<br>
+                    <span class="TE">E:</span> <br>
+                <a href="Mailto:london@productions.com" title="mail to london@">                    
+                    <span class="mail">london@productions.com</span>
+                </a>                    
+                </p>
+            </div>
+            <div id="contact5">
+                <span class="place">MANCHESTER</span><br>
+                <p class="details">37 Oldfield Road<br>Manchester<br>England<br>M54LZ</p>
+                <p class="details">
+                    <span class="TE">T:</span> +44 (0) 161 467 1212<br>
+                    <span class="TE">E:</span><br>
+                <a href="Mailto:manchester@productions.com" title="mail to manchester@">                    
+                    <span class="mail">manchester@productions.com</span>
+                </a>               
+                </p>
+            </div>
+            <a href="X.html#contact" title="link for Contact Us" target="_blank">
+                <button id="button3">CONTACT US</button>
+            </a>
+        </footer>
+    <NOSCRIPT/>
+    </body>
+</html>
