@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>HW4</title>
+<!--
+<BODY>
+This is for USC disclaimer
+</BODY>
+-->
+<style>
+    body{
+        margin: auto;
+        text-align: center;
+    }    
+</style>
+<script>
+function generateHTML(xmlDoc)
+{
+    ELEMENT_NODE = 1;    // MS parser doesn't define Node.ELEMENT_NODE
+    
+    root=xmlDoc.DocumentElement;
+    
+    html_text="<html><head><title>HW4 XML Parse Result</title></head><body>";
+    html_text+="<table border='2'>";
+    
+    heading=xmlDoc.getElementsByTagName("Header");
+    headingNodeList=heading.item(0).childNodes;
+    
+    rows=xmlDoc.getElementsByTagName("Row");
+    if (!rows.item(0)){
+        alert("This XML File contains NO airline companies.");
+        return fales;
+    }
+    //rowNodeList=rows.item(0).childNodes;
+    
+    html_text+="<tbody>";
+    html_text+="<tr>";
+          
+    x=360;  y=165;  
+    // output the headers
+    for(i=0;i<headingNodeList.length;i++)
+    {  
+        if(headingNodeList.item(i).nodeType==ELEMENT_NODE)
+        {  
+        header=headingNodeList.item(i).firstChild.nodeValue;
+        html_text+="<th>"+header+"</th>";  
+        }   
+    }
+    
+    html_text+="</tr>";
+    
+    // output out the values
+    for(i=0;i<rows.length;i++) //do for all planes
+    {  
+        rowNodeList=rows.item(i).childNodes; //get properties of a plane
+        html_text+="<tr>";      //start a new row of the output table
+        for(j=0;j<rowNodeList.length;j++)
+        {  
+            if(rowNodeList.item(j).nodeType==ELEMENT_NODE)
+            {
+                if(rowNodeList.item(j).nodeName=="Plane")
+				{//handle images separately
+                    html_text+="<td><img src='"+rowNodeList.item(j).firstChild.nodeValue+"' width='"+x+"' height='"+y+"'></td>"; 
+                }
+                else if(rowNodeList.item(j).nodeName=="Hubs"){
+                    html_text+="<td><ul>";
+                    if(rowNodeList.item(j).childNodes){
+                        hubList=rowNodeList.item(j).childNodes;
+                        var first=0
+                        for(k=0;k<hubList.length;k++){
+                            if(hubList.item(k).nodeType==ELEMENT_NODE){
+                                first++;
+                                if (first==1){
+                                    if(hubList.item(k).firstChild){
+                                    html_text+="<li><b>"+hubList.item(k).firstChild.nodeValue+"</b></li>";
+                                    }
+                                    else{
+                                    html_text+="<li><b></b></li>";    
+                                    }
+                                }
+                                else{
+                                    if(hubList.item(k).firstChild){
+                                    html_text+="<li>"+hubList.item(k).firstChild.nodeValue+"</li>";   
+                                    }
+                                    else{
+                                    html_text+="<li></li>";    
+                                    }
+                                }
+                            }
+                        }
+                     }
+                    html_text+="</ul></td>"
+                }
+                else if(rowNodeList.item(j).nodeName=="HomePage"){
+                    if (rowNodeList.item(j).firstChild){
+                        html_text+="<td><a href='"+rowNodeList.item(j).firstChild.nodeValue+"'>"+rowNodeList.item(j).firstChild.nodeValue+"</a></td>";
+                    }
+                    else{   
+                        html_text+="<td>"+"</td>";
+                    }                    
+                }
+                else 
+                {
+                    if (rowNodeList.item(j).firstChild){
+                        html_text+="<td>"+rowNodeList.item(j).firstChild.nodeValue+"</td>";
+                    }
+                    else{   
+                        html_text+="<td>"+"</td>";
+                    }
+                }   
+            }    
+        } 
+        html_text+="</tr>";  
+    }
+    html_text+="</tbody>";  
+    html_text+="</table>";
+    html_text+="</body></html>";  
+}
+
+function viewXML(what)
+{
+    var URL = what.URL.value;
+    var xmlhttp; 
+    var xmlDoc;
+    
+    if(URL == "") { 
+        alert("Error: URL cannot be blank!"); 
+        return null; 
+    }     
+    
+    function loadXML(url) {
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();   }
+        else 
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  }
+        
+        xmlhttp.open("GET",url,false);
+        xmlhttp.send();
+        xmlDoc=xmlhttp.responseXML;
+      
+        return xmlDoc;   
+    }
+    
+    xmlDoc = loadXML(URL);
+
+    if (window.ActiveXObject) //if IE, simply execute script (due to async prop).
+    {  
+        if (xmlDoc.parseError.errorCode != 0) 
+        {
+            var myErr = xmlDoc.parseError;
+            alert(myErr.reason);
+            //generateError(xmlDoc);
+            //hWin = window.open("", "Error", "height=300,width=340");
+            //hWin.document.write(html_text);
+        } 
+        else 
+        {  
+            generateHTML(xmlDoc);
+            hWin = window.open("", "Assignment4", "height=800,width=1170");
+            hWin.document.write(html_text);   }
+    } 
+    else //else if FF, execute script once XML object has loaded
+    {          
+        if (!xmlDoc){
+            if (xmlhttp.readyState==4 && xmlhttp.status==404){
+                alert("404:XML File No Founded!!");return null;
+            }
+            else{
+                alert("Error in XML file"); return null;
+            }
+        }
+        xmlDoc.onload=generateHTML(xmlDoc);
+        hWin = window.open("", "Assignment4", "height=800,width=1170");
+        hWin.document.write(html_text);  
+    }
+    hWin.document.close();  
+}
+    </script>
+    </head>
+     
+    <body onKeyDown="if(event.keyCode==13) {document.getElementById('submit').click()}">
+        <h1>Enter URL for Airlines List XML File</h1>
+        <form name="myform" method="POST" id="location">
+            <input required="required" type="text" name="URL" maxlength="255" size="100" value="" />
+            <br/>
+            <input type="button" name="submit" id="submit" value="Submit Query" onClick="viewXML(this.form)" />
+        </form>
+    </body>
+</html>
