@@ -1,0 +1,116 @@
+  "albums": {
+    "data": [
+      {
+        "name": "Timeline Photos",
+        "photos": {
+          "data": [
+            {
+              "name": "And we back! #FightOn",
+              "picture": "https://scontent.xx.fbcdn.net/v/t1.0-0/s130x130/17156114_1444751602223707_5514377331994875972_n.jpg?oh=1265edaa55a92a0bb93536584644f444&oe=5930A84E",
+              "id": "1444751602223707"
+            },
+{
+  "data": {
+    "is_silhouette": false,
+    "url": "https://scontent.xx.fbcdn.net/v/t1.0-0/p480x480/17156114_1444751602223707_5514377331994875972_n.jpg?oh=6861357d37a59bd861b81f4233197679&oe=596AE93E"
+  }
+}
+
+  "data": [
+    {
+      "id": "353851465130",
+      "name": "SpaceX",
+      "picture": {
+        "data": {
+          "height": 720,
+          "is_silhouette": false,
+          "url": "https://scontent.xx.fbcdn.net/v/t1.0-1/p720x720/16142263_10158601714010131_1738778249749707133_n.jpg?oh=65b6dd6dc78868ff8be10f7da9725970&oe=59340C6E",
+          "width": 720
+        }
+      }
+    }
+<!Doctype html>
+<html>
+    <head>
+        <title>hw6 facebook search</title>
+        <style>
+            body{
+                font-family: "Times New Roman", Times, serif;
+            }
+            #searchPanel{
+                width: 500px;
+                margin: 0 auto;
+                height: 150px;
+                background-color: #F3F3F3;
+                border: solid 2px #D4D4D4;
+            }
+            #searchPanel p{
+                margin: 2px 0 2px 2px;
+            }            
+            #searchPanel label{
+                margin: 0 0 0 2px;
+                width: 40px;
+            }
+            #searchPanel .input1{
+                margin: 0 0 0 2px;
+                width: 100px;
+            }
+            #searchPanel .input2{
+                margin: 0 0 0 5px;
+                width: 100px;
+            }
+            #searchPanel .input3{
+                margin: 0 0 0 68px;
+            }            
+            #searchPanel select{
+                margin: 0 0 0 30px;
+            }
+        </style>
+        <script>
+            function showPlaceInputs() {
+                if(document.getElementById("Type").value=="Places")
+                {document.getElementById("placeInputs").style.display = 'block';
+                document.getElementById("buttons").style.margin="2px 0 2px 2px";}
+                else
+                {document.getElementById("placeInputs").style.display = 'none';
+                document.getElementById("buttons").style.margin="26px 0 2px 2px";  }              
+            }
+            function hide() {
+                document.getElementById("placeInputs").style.display = 'none';
+                document.getElementById("buttons").style.margin="26px 0 2px 2px";               
+            }
+        </script>
+    </head>
+    <body>
+        <div id="searchPanel">
+            <p style="text-align:center;margin:0 0 0 0;font-size:22pt"><i>Facebook Search</i></p>
+            <hr style="width:480px">
+            <form method="get" action="">
+                <p>
+                <label>Keyword</label>
+                <input class="input1" type="text" name="keyword" required="required" value="">
+                </p>
+                <p>
+                <label>Type</label>    
+                    <select class="input" id="Type" onchange="showPlaceInputs()">
+                        <option selected=selected value="Users">Users</option>
+                        <option value="Pages">Pages</option>
+                        <option value="Events">Events</option>
+                        <option value="Groups">Groups</option>
+                        <option value="Places">Places</option>
+                    </select>
+                </p>
+                <p id="placeInputs" style="display: none">
+                <label>Location</label> 
+                    <input class="input2" type="text" name="loaction"  required="required" value="">
+                    Distance(meters)<input type="text" name="distance" value="">
+                </p>
+                <p id="buttons" style="margin:26px 0 2px 2px">
+                <input class="input3" type="submit" value="Search" required="required" name="Search">
+                <input type="reset" value="Clear" required="required" name="Clear" onclick="hide()">
+                </p>
+            </form>
+        </div>       
+<a href="?callfunc=612325835623977&amp;token=EAARK4nqZByQQBAGInDyUGmVo1voa9XsffmicV3J382fzGTxZC6jZAEHXtNBAuYjhlZBZAxILc5SokK2ycaomIAsrGf20PNmAmwk816D7UkkMh072YO6xt9HMcIaIB7d7haFhreWxLvyoG7SVUtiNj6mMEuXe3kZAoZD&amp;q=usc&amp;val1=&amp;val2=&amp;type=user&amp;choice=Users">Detfails</a>        
+    </body>
+</html>
