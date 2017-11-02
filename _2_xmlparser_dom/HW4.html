@@ -183,7 +183,7 @@ function viewXML(what)
     <body onKeyDown="if(event.keyCode==13) {document.getElementById('submit').click()}">
         <h1>Enter URL for Airlines List XML File</h1>
         <form name="myform" method="POST" id="location">
-            <input required="required" type="text" name="URL" maxlength="255" size="100" value="" />
+            <input required="required" type="text" name="URL" maxlength="255" size="100" value="airlinelist.xml" />
             <br/>
             <input type="button" name="submit" id="submit" value="Submit Query" onClick="viewXML(this.form)" />
         </form>
